@@ -4,6 +4,7 @@ import SearchNav from "../../components/SearchNav";
 import Category from "../../components/Category";
 import Image from "next/image";
 import Navbar from "../../components/Navbar";
+import Loading from "../../components/Loading";
 
 function Search() {
   const router = useRouter();
@@ -31,9 +32,13 @@ function Search() {
         <Category />
         <div className="w-full h-full 10 mx-0 my-8">
           {searchResult.length === 0 ? (
-            <div className="">
-              <div className="">
-                <h1>Sorry {search} No Found</h1>
+            <div className="flex justify-center">
+              <div className=" space-y-7">
+                <Loading />
+                <h1 className="text-4xl">
+                  Sorry. If Loading too Long.
+                  <span className="text-red-800">{search}</span> No Found
+                </h1>
               </div>
             </div>
           ) : (
