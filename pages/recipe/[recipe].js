@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import SearchNav from "../../components/SearchNav";
 import Category from "../../components/Category";
 import Image from "next/image";
+import Navbar from "../../components/Navbar";
+import Loading from "../../components/Loading";
 
 function Recipe() {
   const router = useRouter();
@@ -26,26 +28,27 @@ function Recipe() {
   }, [recipe]);
 
   return (
-    <div className="m-0 p-0 box-border font-Montserrat antialiased">
+    <div className="m-0 p-0 box-border font-Oleo antialiased">
       <div className="mx-[20%]">
+        <Navbar />
         <SearchNav />
         <Category />
         {detailResult.length === 0 ? (
-          "loading"
+          <Loading />
         ) : (
           <div className="mt-40 mb-20 flex ">
             <div className="w-1/2  h-full">
               <h2 className=" text-base font-semibold mb-8">
                 {detailResult.title}
               </h2>
-              <Image
-                className=" absolute w-full h-full "
-                src={detailResult.image}
-                alt={detailResult.title}
-                objectFit="cover"
-                width={200}
-                height={200}
-              />
+              <div className="w-[400px] h-[200px] relative">
+                <Image
+                  src={detailResult.image}
+                  alt={detailResult.title}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
             </div>
 
             <div className=" w-1/2">

@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import SearchNav from "../../components/SearchNav";
 import Category from "../../components/Category";
 import Image from "next/image";
+import Navbar from "../../components/Navbar";
 
 function Search() {
   const router = useRouter();
@@ -23,8 +24,9 @@ function Search() {
   };
 
   return (
-    <div className="m-0 p-0 box-border font-Montserrat antialiased">
+    <div className="m-0 p-0 box-border font-Oleo antialiased">
       <div className="mx-[20%]">
+        <Navbar />
         <SearchNav />
         <Category />
         <div className="w-full h-full 10 mx-0 my-8">

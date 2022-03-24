@@ -7,6 +7,7 @@ module.exports = {
     extend: {},
     fontFamily: {
       Montserrat: ["Montserrat", "sans-serif"],
+      Oleo: ["Oleo Script Swash Caps", "cursive"],
     },
   },
   plugins: [],

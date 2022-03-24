@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import Category from "../../components/Category";
 import Image from "next/image";
 import SearchNav from "../../components/SearchNav";
+import Navbar from "../../components/Navbar";
+import Loading from "../../components/Loading";
 
 function Country() {
   const router = useRouter();
@@ -23,13 +25,14 @@ function Country() {
     setCuisines(recipes.results);
   };
   return (
-    <div className="m-0 p-0 box-border font-Montserrat antialiased">
+    <div className="m-0 p-0 box-border font-Oleo antialiased">
       <div className="mx-[20%]">
+        <Navbar />
         <SearchNav />
         <Category />
         <div className="w-full h-full 10 mx-0 my-8">
           {cuisines.length === 0 ? (
-            "loading"
+            <Loading />
           ) : (
             <div className=" grid grid-cols-4 gap-6">
               {cuisines.map((cuisine) => (
